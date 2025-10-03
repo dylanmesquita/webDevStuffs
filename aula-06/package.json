@@ -9,7 +9,14 @@
   "author": "Dylan",
   "type": "commonjs",
   "main": "app.js",
+  
+  
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   }
 }
