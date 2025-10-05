@@ -1,7 +1,7 @@
-cons
+const express = require('express')
 const router = express.Router()
 
-// Rotas para notícias
+
 router.get('/', (req, res) => {
   res.send('List of news articles')
   console.log('News base route accessed')
