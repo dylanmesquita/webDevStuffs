@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const data = {
-  time: new Date(),
-  message: 'Hello, this is some data!'
-};
+
+const baseMessage = 'Hello, this is some data!';
 
 router.post('/', (req, res) => {
+  const data = {
+    time: new Date(),
+    message: baseMessage
+  };
+
   res.json(data);
 });
 
