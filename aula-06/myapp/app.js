@@ -8,7 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const newsRoutes = require('./routes/news');
 const aboutRoutes = require('./routes/about');
-
+const dataRoutes = require('./routes/data');
 
 var app = express();
 
@@ -20,13 +20,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/news', newsRoutes);
 app.use('/about', aboutRoutes);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/data', dataRoutes);
 
 app.use(function(req, res, next) {
   next(createError(404));
+  res.send('<a href="/">Go to Home</a>');
+});
+
+app.use(function(err, req, res, next) {
+res.status(err.status || 404);
+  res.send('<a href="/">Go to Home</a>');
 });
 
 app.use(function(err, req, res, next) {

@@ -64,14 +64,17 @@ function onError(error) {
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
+      res.send('<a href="/">Go to Home</a>');
       process.exit(1);
       break;
     case 'EADDRINUSE':
       console.error(bind + ' is already in use');
+      res.send('<a href="/">Go to Home</a>');
       process.exit(1);
       break;
     default:
-      throw error;
+      res.send('<a href="/">Go to Home</a>');
+
   }
 }
 
